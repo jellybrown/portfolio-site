@@ -103,7 +103,8 @@ p.small {
 }
 
 /* section.history */
-.history__container {
+.history__container,
+.goal__container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -287,8 +288,59 @@ p.small {
   padding: 1.2em 4em;
 }
 /* section.goal */
+.goal__container {
+  margin-top: 150px;
+}
+.goal .lines {
+  margin-top: 6px;
+}
+.goal .dot {
+  width: 14px;
+  height: 14px;
+  background: var(--main-deep-white);
+  border-radius: 7px;
+}
+.goal .line {
+  height: 100px;
+  width: 2.2px;
+  background: var(--main-deep-white);
+  margin-left: 5.3px;
+}
+.goal .line.last {
+  height: 60px;
+}
+.goal .cards {
+  margin-left: 12px;
+  transform: translateY(-50px);
+}
+.goal .card {
+  width: 450px;
+  height: 93px;
+  padding-top: 25px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.goal .card.mid {
+  height: 71px;
+}
+
+.goal .card h2 {
+  font-weight: var(--text-bold-weight);
+  font-size: 14px;
+  line-height: 19px;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  color: var(--main-deep-white);
+  /* 기존 텍스트 2b2862 */
+}
+
+.goal .card p {
+  font-size: var(--text-small-size);
+  line-height: 22px;
+  color: var(--color-light-gray);
+  margin-left: 25px;
+}
 
 /* section.values */
-/* aside.menu */
 
-/* history */
+/* aside.menu */
