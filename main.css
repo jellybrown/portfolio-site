@@ -18,15 +18,17 @@
   --text-mid-weight: 500;
   --text-bold-weight: 700;
   --text-line-height-small: 1.2;
-  --text-line-height-mid: 1.3;
+  --text-line-height-mid: 1.4;
   --shadow-style-card-1: 0px 16px 15px -10px rgba(105, 96, 215, 0.0944602);
   --shadow-style-card-2: 0px 6px 10px rgba(115, 120, 225, 0.05);
 }
 
 /* layout */
+
 html,
 body {
   font-family: "Noto Sans KR", sans-serif;
+  letter-spacing: -0.5px;
   font-weight: var(--text-thin-weight);
 }
 section {
@@ -88,13 +90,13 @@ p.small {
 .profile p.small {
   color: var(--color-mid-gray);
 }
-.image__wrapper {
+.profile .image__wrapper {
   width: 16em;
   height: 16em;
   border-radius: 50%;
   overflow: hidden;
 }
-.image__wrapper img {
+.profile .image__wrapper img {
   width: 170%;
   transform: translate(-20%, -5%);
 }
@@ -108,7 +110,6 @@ p.small {
 }
 
 .history .lines {
-  margin-left: 40px;
   margin-top: 6px;
 }
 .history .dot {
@@ -148,9 +149,7 @@ p.small {
 }
 
 .history .card h4 {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: bold;
+  font-weight: var(--text-bold-weight);
   font-size: 14px;
   line-height: 19px;
   margin-left: 25px;
@@ -160,9 +159,6 @@ p.small {
 }
 
 .history .card p {
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: normal;
   font-size: var(--text-small-size);
   line-height: 22px;
   color: var(--color-deep-gray);
@@ -170,6 +166,47 @@ p.small {
 }
 
 /* section.skills */
+
+.skills__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+  width: 100%;
+}
+.skills .card {
+  box-sizing: border-box;
+  font-size: var(--text-small-size);
+  width: 43%;
+  margin: 15px 20px;
+  padding: 20px 25px;
+  background: var(--color-pure-white);
+  border-radius: 7px;
+  box-shadow: var(--shadow-style-card-2);
+  display: flex;
+  align-items: center;
+}
+.skills .image__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  padding-right: 20px;
+}
+.skills img {
+  width: 100%;
+}
+.skills .card span {
+  font-weight: var(--text-mid-weight);
+  margin-top: 8px;
+  color: var(--main-black);
+}
+.skills .card p {
+  flex: 1;
+  color: var(--color-deep-gray);
+  line-height: var(--text-line-height-mid);
+}
+
 /* section.projects */
 /* section.goal */
 /* section.values */
