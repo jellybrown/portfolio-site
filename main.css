@@ -12,6 +12,7 @@
   --color-deep-gray: #6d6d6d;
   --color-pure-white: #ffffff;
   --text-title-size: 1.6rem;
+  --text-large-size: 1.3rem;
   --text-mid-size: 1.1rem;
   --text-small-size: 0.9rem;
   --text-thin-weight: 400;
@@ -148,7 +149,7 @@ p.small {
   height: 71px;
 }
 
-.history .card h4 {
+.history .card h2 {
   font-weight: var(--text-bold-weight);
   font-size: 14px;
   line-height: 19px;
@@ -166,7 +167,6 @@ p.small {
 }
 
 /* section.skills */
-
 .skills__container {
   display: flex;
   flex-wrap: wrap;
@@ -191,7 +191,7 @@ p.small {
   flex-direction: column;
   align-items: center;
   width: 50px;
-  padding-right: 20px;
+  padding-right: 1.5em;
 }
 .skills img {
   width: 100%;
@@ -208,7 +208,86 @@ p.small {
 }
 
 /* section.projects */
+.projects .content__container {
+  position: relative;
+}
+.projects__container {
+  width: 80%;
+  min-width: 600px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.projects h2 {
+  font-size: var(--text-title-size);
+  font-weight: var(--text-bold-weight);
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+.projects h3 {
+  font-size: var(--text-large-size);
+  font-weight: var(--text-mid-weight);
+  margin-bottom: 1em;
+}
+.projects p {
+  font-size: var(--text-small-size);
+  color: var(--color-light-gray);
+}
+.projects .date {
+  font-size: var(--text-small-size);
+  color: var(--color-light-gray);
+  margin-left: 2em;
+}
+.article__tab {
+  position: absolute;
+  left: 10px;
+  top: 150px;
+}
+.article__tab span {
+  display: block;
+  color: var(--color-light-gray);
+  margin: 2.5em 0;
+  cursor: pointer;
+}
+.article__tab span.active {
+  color: var(--main-black);
+  font-weight: var(--text-mid-weight);
+  position: relative;
+}
+.article__tab span.active:after {
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  content: "";
+  width: 110%;
+  height: 1px;
+  background-color: var(--main-black);
+}
+.projects__item {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--color-pure-white);
+  box-shadow: var(--shadow-style-card-2);
+  padding: 2em;
+}
+.article__header {
+}
+.article__description {
+  margin: 2.5em 0;
+}
+.projects .button__wrapper {
+  text-align: center;
+}
+.projects .more__button {
+  color: var(--main-deep-white);
+  background: var(--main-black);
+  font-weight: var(--text-mid-weight);
+  font-size: var(--text-small-size);
+  display: inline-block;
+  border-radius: 30px;
+  padding: 1.2em 4em;
+}
 /* section.goal */
+
 /* section.values */
 /* aside.menu */
 
