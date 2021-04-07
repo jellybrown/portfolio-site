@@ -35,6 +35,7 @@ body {
 section {
   min-height: 100vh;
   width: 100%;
+  padding: 3em 0;
 }
 section.black {
   background-color: var(--main-black);
@@ -58,7 +59,7 @@ h1 {
   font-size: var(--text-title-size);
   font-weight: var(--text-mid-weight);
   text-align: center;
-  padding-top: 60px;
+  padding: 4em 0 2em;
 }
 p {
   line-height: var(--text-line-height-small);
@@ -172,7 +173,6 @@ p.small {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 50px;
   width: 100%;
 }
 .skills .card {
@@ -289,7 +289,6 @@ p.small {
 }
 /* section.goal */
 .goal__container {
-  margin-top: 150px;
 }
 .goal .lines {
   margin-top: 6px;
@@ -342,5 +341,44 @@ p.small {
 }
 
 /* section.values */
-
+.values__container {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.values h2 {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: var(--text-mid-size);
+  color: var(--main-black);
+  background-color: var(--main-deep-white);
+  margin-bottom: 2em;
+}
+.values {
+  font-size: var(--text-small-size);
+}
+.values p {
+  color: var(--color-light-gray);
+  line-height: var(--text-line-height-mid);
+}
+.values__item {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.values__item .stroke {
+  width: 100%;
+  height: 100px;
+}
+.values__item .stroke path {
+  stroke: var(--main-deep-white);
+  stroke-width: 1px;
+  stroke-dasharray: 5px;
+}
 /* aside.menu */
