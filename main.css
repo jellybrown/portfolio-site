@@ -215,8 +215,10 @@ p.small {
 .projects__container {
   width: 80%;
   min-width: 600px;
+  min-height: 500px;
   margin: 0 auto;
   padding-top: 50px;
+  position: relative;
 }
 .projects h2 {
   font-size: var(--text-title-size);
@@ -243,18 +245,18 @@ p.small {
   left: 10px;
   top: 150px;
 }
-.article__tab span {
+.tab__number {
   display: block;
   color: var(--color-light-gray);
   margin: 2.5em 0;
   cursor: pointer;
 }
-.article__tab span.active {
+.tab__number.active {
   color: var(--main-black);
   font-weight: var(--text-mid-weight);
   position: relative;
 }
-.article__tab span.active:after {
+.tab__number.active:after {
   position: absolute;
   left: 0;
   bottom: -7px;
@@ -264,12 +266,22 @@ p.small {
   background-color: var(--main-black);
 }
 .projects__item {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   border-radius: 10px;
   background: var(--color-pure-white);
   box-shadow: var(--shadow-style-card-2);
   padding: 2em;
+  opacity: 0;
+  transition: 0.5s;
 }
+.projects__item.active {
+  opacity: 1;
+  transition: 0.5s;
+}
+
 .article__header {
 }
 .article__description {
