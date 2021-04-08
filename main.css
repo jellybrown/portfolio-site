@@ -32,6 +32,7 @@ body {
   letter-spacing: -0.5px;
   font-weight: var(--text-thin-weight);
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
 }
 ::-webkit-scrollbar {
   display: none;

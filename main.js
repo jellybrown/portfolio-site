@@ -1,5 +1,7 @@
 "use strict";
 
+import { scenes } from "./scene.js";
+
 // projects 탭 기능
 const tabSection = document.querySelector(".article__tab");
 const tabItems = document.querySelectorAll(".projects__item");
@@ -40,3 +42,18 @@ toggleBar.addEventListener("click", () => {
     toggleBar.classList.add("close");
   }
 });
+
+// menu 이동
+const moveToSection = (e) => {
+  if (e.target.parentNode.nodeName === "LI") {
+    const clicked = e.target.parentNode.dataset.id;
+    const willMove = scenes[clicked - 1].top;
+    window.scrollTo(0, willMove);
+    body.classList.remove("black");
+    blackBg.classList.remove("on");
+    menuSection.classList.remove("on");
+    toggleBar.classList.remove("close");
+  }
+};
+
+menuSection.addEventListener("click", moveToSection);
