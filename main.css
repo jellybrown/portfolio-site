@@ -31,7 +31,21 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   letter-spacing: -0.5px;
   font-weight: var(--text-thin-weight);
+  -ms-overflow-style: none;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body.black {
+  overflow-y: hidden;
+}
+
 section {
   min-height: 100vh;
   width: 100%;
@@ -393,4 +407,92 @@ p.small {
   stroke-width: 1px;
   stroke-dasharray: 5px;
 }
+
 /* aside.menu */
+.black__backgrond {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+}
+.black__backgrond.on {
+  opacity: 1;
+  visibility: visible;
+}
+.menu {
+  position: fixed;
+  right: 0;
+  transform: translateX(400px);
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: var(--main-deep-white);
+  transition: 0.7s;
+}
+.menu.on {
+  transform: translateX(0);
+  transition: 0.7s;
+}
+.toggle__bar {
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 3;
+}
+.toggle__bar span {
+  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-mid-gray);
+  margin: 5px 0;
+  transition: 0.5s;
+}
+.toggle__bar span:nth-child(1) {
+  transform-origin: top left;
+}
+.toggle__bar span:nth-child(2) {
+  top: 10px;
+  opacity: 1;
+}
+.toggle__bar span:nth-child(3) {
+  top: 20px;
+  transform-origin: bottom left;
+}
+.toggle__bar.close span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.toggle__bar.close span:nth-child(2) {
+  opacity: 0;
+}
+.toggle__bar.close span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.menu__list {
+}
+.menu__list li {
+  margin: 2em 0;
+  padding: 1.5em 0;
+  text-align: center;
+}
+.menu__list li a {
+  color: var(--main-black);
+  font-size: var(--text-large-size);
+}
+.menu p {
+  color: var(--color-light-gray);
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

@@ -14,3 +14,29 @@ const changeTab = (e) => {
   tabItems[number - 1].classList.add("active");
 };
 tabSection.addEventListener("click", changeTab);
+
+// menu 슬라이드 기능
+// black__backgrond, 닫기 누르면 menu 들어감
+const blackBg = document.querySelector(".black__backgrond");
+const menuSection = document.querySelector(".menu");
+const body = document.querySelector("body");
+const toggleBar = document.querySelector(".toggle__bar");
+blackBg.addEventListener("click", () => {
+  body.classList.remove("black");
+  blackBg.classList.remove("on");
+  menuSection.classList.remove("on");
+  toggleBar.classList.remove("close");
+});
+toggleBar.addEventListener("click", () => {
+  if (toggleBar.classList.contains("close")) {
+    body.classList.remove("black");
+    blackBg.classList.remove("on");
+    menuSection.classList.remove("on");
+    toggleBar.classList.remove("close");
+  } else {
+    body.classList.add("black");
+    blackBg.classList.add("on");
+    menuSection.classList.add("on");
+    toggleBar.classList.add("close");
+  }
+});
