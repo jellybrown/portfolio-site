@@ -7,13 +7,15 @@ const tabSection = document.querySelector(".article__tab");
 const tabItems = document.querySelectorAll(".projects__item");
 const tabNumbers = document.querySelectorAll(".tab__number");
 const changeTab = (e) => {
-  const number = parseInt(e.target.textContent); //클릭한 탭번호
-  for (let i = 0; i < tabNumbers.length; i++) {
-    tabNumbers[i].classList.remove("active");
-    tabItems[i].classList.remove("active");
+  if (e.target.nodeName === "SPAN") {
+    const number = parseInt(e.target.textContent); //클릭한 탭번호
+    for (let i = 0; i < tabNumbers.length; i++) {
+      tabNumbers[i].classList.remove("active");
+      tabItems[i].classList.remove("active");
+    }
+    tabNumbers[number - 1].classList.add("active");
+    tabItems[number - 1].classList.add("active");
   }
-  tabNumbers[number - 1].classList.add("active");
-  tabItems[number - 1].classList.add("active");
 };
 tabSection.addEventListener("click", changeTab);
 
@@ -23,6 +25,7 @@ const blackBg = document.querySelector(".black__backgrond");
 const menuSection = document.querySelector(".menu");
 const body = document.querySelector("body");
 const toggleBar = document.querySelector(".toggle__bar");
+
 blackBg.addEventListener("click", () => {
   body.classList.remove("black");
   blackBg.classList.remove("on");

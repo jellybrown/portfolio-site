@@ -31,6 +31,7 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   letter-spacing: -0.5px;
   font-weight: var(--text-thin-weight);
+  overflow-x: hidden;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
 }
@@ -40,7 +41,7 @@ body {
 
 body {
   position: relative;
-  overflow-x: hidden;
+
   overflow-y: auto;
 }
 body.black {
@@ -340,7 +341,7 @@ p.small {
   transform: translateY(-50px);
 }
 .goal .card {
-  width: 450px;
+  width: 430px;
   height: 93px;
   padding-top: 25px;
   border-radius: 10px;
@@ -349,7 +350,9 @@ p.small {
 .goal .card.mid {
   height: 71px;
 }
-
+.goal .card:nth-child(1) {
+  width: 410px;
+}
 .goal .card h2 {
   font-weight: var(--text-bold-weight);
   font-size: 14px;
