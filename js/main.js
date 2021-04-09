@@ -49,6 +49,7 @@ toggleBar.addEventListener("click", () => {
 
 // 영역별 높이 설정,
 // 디바이스 별로 높이 다르기 때문에 reset 필요
+let sections;
 let profile;
 let history;
 let skills;
@@ -59,7 +60,8 @@ let scenes;
 let currentScene;
 
 const resetSection = () => {
-  const sections = document.querySelectorAll("section");
+  window.scrollTo(0, 0);
+  sections = document.querySelectorAll("section");
 
   profile = new Scene(sections[0].offsetTop, sections[0].offsetHeight);
   history = new Scene(sections[1].offsetTop, sections[1].offsetHeight);
@@ -69,13 +71,19 @@ const resetSection = () => {
   values = new Scene(sections[5].offsetTop, sections[5].offsetHeight);
 
   scenes = [profile, history, skills, projects, goal, values];
+  // 섹션별로 인터렉티브 요소들 관리
+  profile.addObj("h1", ".profile h1");
+  profile.addObj("p", ".profile p");
+  history.addManyObj("cards", ".history .card");
+  skills.addManyObj("cards", ".skills .card");
+  goal.addManyObj("cards", ".goal .card");
 };
 
 // menu 이동
 const moveToSection = (e) => {
   if (e.target.parentNode.nodeName === "LI") {
-    currentScene = e.target.parentNode.dataset.id; // 이동시 currentScene 업데이트
-    console.log(currentScene);
+    currentScene = parseInt(e.target.parentNode.dataset.id); // 이동시 currentScene 업데이트
+    console.log(typeof currentScene);
     const willMove = scenes[currentScene - 1].top;
     window.scrollTo(0, willMove);
     body.classList.remove("black");
@@ -103,5 +111,62 @@ const checkScene = () => {
   if (yOffset > goal.top && values.top > yOffset) currentScene = 5;
   if (yOffset > values.top) currentScene = 6;
   console.log(currentScene);
+
+  // 씬별로 인터렉티브 효과
+  // scene 1: 색상 변경
+  // scene 2,3,5: 카드 올라오기
+  // scene 6: 투명도만 진해지기
+  switch (currentScene) {
+    case 1:
+      if (yOffset > scenes[0].height * 0.4) {
+        sections[0].style.transition = "3s";
+
+        sections[0].style.backgroundColor = "#fbfbfb";
+        profile.obj["h1"].style.color = "#fbfbfb";
+        profile.obj["p"].style.color = "#fbfbfb";
+      } else {
+        sections[0].style.transition = "1.5s";
+        sections[0].style.backgroundColor = "#353535";
+        profile.obj["p"].style.color = "#9d9d9d";
+      }
+
+      if (yOffset > scenes[0].height * 0.6) {
+        history.obj["cards"].forEach((card) => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        });
+      }
+      break;
+    case 2:
+      if (yOffset >= scenes[1].top) {
+        history.obj["cards"].forEach((card) => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        });
+      }
+      if (yOffset > scenes[2].height * 0.8) {
+        skills.obj["cards"].forEach((card) => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        });
+      }
+      break;
+    case 3:
+      if (yOffset >= scenes[2].top) {
+        skills.obj["cards"].forEach((card) => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        });
+      }
+    case 4:
+      if (yOffset > scenes[4].height * 0.5) {
+        goal.obj["cards"].forEach((card) => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        });
+      }
+    default:
+      break;
+  }
 };
 window.addEventListener("scroll", throttle(checkScene, 500));

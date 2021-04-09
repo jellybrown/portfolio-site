@@ -162,9 +162,40 @@ p.small {
   border-radius: 10px;
   box-shadow: var(--shadow-style-card-2);
   margin-bottom: 10px;
+  opacity: 0;
+  transition: 1s;
+  transform: translateY(50px);
 }
 .history .card.mid {
   height: 71px;
+}
+.history .card:nth-child(2),
+.skills .card:nth-child(2) {
+  transition-delay: 1s;
+}
+.history .card:nth-child(3),
+.skills .card:nth-child(3) {
+  transition-delay: 1.7s;
+}
+.history .card:nth-child(4),
+.skills .card:nth-child(4) {
+  transition-delay: 2.4s;
+}
+.history .card:nth-child(5),
+.skills .card:nth-child(5) {
+  transition-delay: 3.1s;
+}
+.history .card:nth-child(6),
+.skills .card:nth-child(6) {
+  transition-delay: 3.8s;
+}
+.history .card:nth-child(7),
+.skills .card:nth-child(7) {
+  transition-delay: 4.5s;
+}
+.history .card:nth-child(8),
+.skills .card:nth-child(8) {
+  transition-delay: 5.2s;
 }
 
 .history .card h2 {
@@ -202,6 +233,9 @@ p.small {
   box-shadow: var(--shadow-style-card-2);
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: 1.5s;
+  transform: translateY(50px);
 }
 .skills .image__wrapper {
   display: flex;
@@ -346,12 +380,23 @@ p.small {
   padding-top: 25px;
   border-radius: 10px;
   margin-bottom: 10px;
+  opacity: 0;
+  transition: 1.5s;
+  transform: translateY(50px);
 }
+
 .goal .card.mid {
   height: 71px;
 }
 .goal .card:nth-child(1) {
   width: 410px;
+  transition-delay: 1s;
+}
+.goal .card:nth-child(2) {
+  transition-delay: 2s;
+}
+.goal .card:nth-child(3) {
+  transition-delay: 3s;
 }
 .goal .card h2 {
   font-weight: var(--text-bold-weight);
