@@ -107,7 +107,7 @@
   /* menu */
   .menu {
     width: 80%;
-    transform: translateX(501px);
+    transform: translateX(600px);
   }
   .menu__list li a {
     font-size: var(--r-text-large);

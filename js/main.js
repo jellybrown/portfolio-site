@@ -1,6 +1,7 @@
 "use strict";
 
 import { Scene } from "./scene.js";
+import { throttle } from "./scroll.js";
 
 // projects 탭 기능
 const tabSection = document.querySelector(".article__tab");
@@ -55,6 +56,7 @@ let projects;
 let goal;
 let values;
 let scenes;
+let currentScene;
 
 const resetSection = () => {
   const sections = document.querySelectorAll("section");
@@ -72,8 +74,9 @@ const resetSection = () => {
 // menu 이동
 const moveToSection = (e) => {
   if (e.target.parentNode.nodeName === "LI") {
-    const clicked = e.target.parentNode.dataset.id;
-    const willMove = scenes[clicked - 1].top;
+    currentScene = e.target.parentNode.dataset.id; // 이동시 currentScene 업데이트
+    console.log(currentScene);
+    const willMove = scenes[currentScene - 1].top;
     window.scrollTo(0, willMove);
     body.classList.remove("black");
     blackBg.classList.remove("on");
@@ -85,3 +88,20 @@ const moveToSection = (e) => {
 resetSection();
 window.addEventListener("resize", resetSection);
 menuSection.addEventListener("click", moveToSection);
+
+// 현재 스크롤 영역별로 스크롤 이벤트 실행되게 만들기
+// 디바이스별로 생각해야함
+// 아마도 %구해서 해야할듯
+
+const checkScene = () => {
+  let yOffset = window.pageYOffset;
+
+  if (yOffset > profile.top && history.top > yOffset) currentScene = 1;
+  if (yOffset > history.top && skills.top > yOffset) currentScene = 2;
+  if (yOffset > skills.top && projects.top > yOffset) currentScene = 3;
+  if (yOffset > projects.top && goal.top > yOffset) currentScene = 4;
+  if (yOffset > goal.top && values.top > yOffset) currentScene = 5;
+  if (yOffset > values.top) currentScene = 6;
+  console.log(currentScene);
+};
+window.addEventListener("scroll", throttle(checkScene, 500));

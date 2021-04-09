@@ -429,8 +429,8 @@ p.small {
 }
 .menu {
   position: fixed;
-  right: 0;
-  transform: translateX(400px);
+  right: -400px;
+  transform: translateX(0px);
   top: 0;
   width: 400px;
   height: 100vh;
@@ -438,7 +438,7 @@ p.small {
   transition: 0.7s;
 }
 .menu.on {
-  transform: translateX(0);
+  transform: translateX(-400px);
   transition: 0.7s;
 }
 .toggle__bar {
