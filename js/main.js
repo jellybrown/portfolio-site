@@ -60,7 +60,6 @@ let scenes;
 let currentScene;
 
 const resetSection = () => {
-  window.scrollTo(0, 0);
   sections = document.querySelectorAll("section");
 
   profile = new Scene(sections[0].offsetTop, sections[0].offsetHeight);
@@ -74,9 +73,11 @@ const resetSection = () => {
   // 섹션별로 인터렉티브 요소들 관리
   profile.addObj("h1", ".profile h1");
   profile.addObj("p", ".profile p");
+  profile.addObj("section", ".profile");
   history.addManyObj("cards", ".history .card");
   skills.addManyObj("cards", ".skills .card");
   goal.addManyObj("cards", ".goal .card");
+  values.addManyObj("values", ".values__item");
 };
 
 // menu 이동
@@ -101,6 +102,14 @@ menuSection.addEventListener("click", moveToSection);
 // 디바이스별로 생각해야함
 // 아마도 %구해서 해야할듯
 
+// 씬이 바뀔때마다 스크롤 비율(ratio)이 바뀐다. (ratio: 0~1사이의 값)
+const getScrollRatio = (sceneNumber) => {
+  let gap = window.pageYOffset - scenes[sceneNumber - 1].top;
+  let ratio = gap / scenes[sceneNumber - 1].height;
+
+  return ratio;
+};
+
 const checkScene = () => {
   let yOffset = window.pageYOffset;
 
@@ -110,63 +119,116 @@ const checkScene = () => {
   if (yOffset > projects.top && goal.top > yOffset) currentScene = 4;
   if (yOffset > goal.top && values.top > yOffset) currentScene = 5;
   if (yOffset > values.top) currentScene = 6;
-  console.log(currentScene);
+  //  console.log("C", currentScene);
+  let scrollRatio = getScrollRatio(currentScene);
+  scenes[currentScene - 1].setRatio(scrollRatio); // 씬별로 마지막 스크롤 위치 저장
 
+  //console.log("씬1", scenes[0].currentRatio);
+  // console.log("씬2", scenes[1].currentRatio);
+
+  // if (scenes[0].currentRatio > 0.3) {
+  //   console.log("음", scenes[0].currentRatio - 0.3);
+  //   history.obj["cards"][0].style.opacity = scenes[0].currentRatio - 0.1;
+  // }
+  // if (scenes[0].currentRatio > 0.5) {
+  //   history.obj["cards"][1].style.opacity = scenes[0].currentRatio - 0.2;
+  // }
+  // if (scenes[0].currentRatio > 0.6 || scenes[1].currentRatio > 0.1) {
+  //   history.obj["cards"][2].style.opacity = scenes[1].currentRatio + 0.2;
+  // }
+  // if (scenes[0].currentRatio > 0.7 || scenes[1].currentRatio > 0.2) {
+  //   history.obj["cards"][3].style.opacity = scenes[1].currentRatio + 0.1;
+  // }
+  // if (scenes[1].currentRatio > 0.3) {
+  //   history.obj["cards"][4].style.opacity = scenes[1].currentRatio;
+  // }
+  // if (scenes[1].currentRatio > 0.4) {
+  //   history.obj["cards"][5].style.opacity = scenes[1].currentRatio - 0.1;
+  // }
+  // if (scenes[1].currentRatio > 0.5) {
+  //   history.obj["cards"][6].style.opacity = scenes[1].currentRatio - 0.2;
+  // }
+  // if (scenes[1].currentRatio > 0.6) {
+  //   history.obj["cards"][7].style.opacity = scenes[1].currentRatio - 0.3;
+  // }
+  //console.log(scrollRatio);
   // 씬별로 인터렉티브 효과
   // scene 1: 색상 변경
   // scene 2,3,5: 카드 올라오기
   // scene 6: 투명도만 진해지기
   switch (currentScene) {
-    case 1:
-      if (yOffset > scenes[0].height * 0.4) {
-        sections[0].style.transition = "3s";
-
-        sections[0].style.backgroundColor = "#fbfbfb";
-        profile.obj["h1"].style.color = "#fbfbfb";
-        profile.obj["p"].style.color = "#fbfbfb";
-      } else {
-        sections[0].style.transition = "1.5s";
-        sections[0].style.backgroundColor = "#353535";
-        profile.obj["p"].style.color = "#9d9d9d";
+    case 1: // profile
+      if (scrollRatio > 0.2) {
+        profile.obj["h1"].style.opacity = 1;
+        profile.obj["p"].style.opacity = 1;
+        profile.obj["h1"].style.transition = "1s";
+        profile.obj["p"].style.transition = "1s";
       }
-
-      if (yOffset > scenes[0].height * 0.6) {
+      if (scrollRatio > 0.6) {
         history.obj["cards"].forEach((card) => {
           card.style.opacity = 1;
           card.style.transform = "translateY(0)";
         });
       }
       break;
-    case 2:
-      if (yOffset >= scenes[1].top) {
+    case 2: // history
+      if (scrollRatio > 0.1) {
         history.obj["cards"].forEach((card) => {
           card.style.opacity = 1;
           card.style.transform = "translateY(0)";
         });
       }
-      if (yOffset > scenes[2].height * 0.8) {
+      if (scrollRatio > 0.5) {
         skills.obj["cards"].forEach((card) => {
           card.style.opacity = 1;
           card.style.transform = "translateY(0)";
         });
       }
       break;
-    case 3:
-      if (yOffset >= scenes[2].top) {
+    case 3: // skills
+      if (scrollRatio > 0.2) {
         skills.obj["cards"].forEach((card) => {
           card.style.opacity = 1;
           card.style.transform = "translateY(0)";
         });
       }
-    case 4:
-      if (yOffset > scenes[4].height * 0.5) {
+      break;
+    case 4: // projects
+      if (scrollRatio > 0.5) {
         goal.obj["cards"].forEach((card) => {
           card.style.opacity = 1;
           card.style.transform = "translateY(0)";
+        });
+      }
+      break;
+    case 5: // goal
+      if (scrollRatio > 0.1) {
+        goal.obj["cards"].forEach((card) => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        });
+      }
+      if (scrollRatio > 0.6) {
+        values.obj["values"].forEach((value) => {
+          value.style.opacity = 1;
+          value.style.transition = "1s";
+        });
+        console.log(values.obj["values"]);
+      }
+
+      break;
+    case 6: // values
+      if (scrollRatio > 0.1) {
+        let delay = 1;
+        values.obj["values"].forEach((value) => {
+          value.style.opacity = 1;
+          value.style.transition = "1s";
+          value.style.transitionDelay = `${delay++}s`;
         });
       }
     default:
       break;
   }
 };
-window.addEventListener("scroll", throttle(checkScene, 500));
+window.addEventListener("scroll", throttle(checkScene, 100));
+//window.addEventListener("scroll", checkScene);

@@ -2,6 +2,7 @@
 
 export class Scene {
   obj = {};
+  currentRatio = 0;
   constructor(top, height) {
     this._top = top;
     this._height = height;
@@ -27,5 +28,10 @@ export class Scene {
   addManyObj(saveName, selectorName) {
     if (this.obj[saveName]) throw new Error("이미 생성하려는 값이 있습니다.");
     this.obj[saveName] = document.querySelectorAll(selectorName);
+  }
+  setRatio(ratio) {
+    if (ratio > 1) this.currentRatio = 1;
+    if (ratio < 0) this.currentRatio = 0;
+    if (ratio > 0 && ratio < 1) this.currentRatio = ratio;
   }
 }

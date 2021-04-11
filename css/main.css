@@ -101,6 +101,12 @@ p.small {
 }
 .profile h1 {
   line-height: var(--text-line-height-mid);
+  transition: 0.5s;
+  opacity: 0.3;
+}
+.profile p {
+  opacity: 0.3;
+  transition: 0.5s;
 }
 .profile p.mid {
   color: var(--color-mid-gray);
@@ -163,39 +169,45 @@ p.small {
   box-shadow: var(--shadow-style-card-2);
   margin-bottom: 10px;
   opacity: 0;
-  transition: 1s;
+  transition: 0.5s;
   transform: translateY(50px);
 }
+
 .history .card.mid {
   height: 71px;
 }
-.history .card:nth-child(2),
+
+.history .card:nth-child(1),
+.skills .card:nth-child(1),
 .skills .card:nth-child(2) {
+  transition-delay: 0.5s;
+}
+.history .card:nth-child(2),
+.skills .card:nth-child(3),
+.skills .card:nth-child(4) {
   transition-delay: 1s;
 }
 .history .card:nth-child(3),
-.skills .card:nth-child(3) {
-  transition-delay: 1.7s;
+.skills .card:nth-child(5),
+.skills .card:nth-child(6) {
+  transition-delay: 1.5s;
 }
 .history .card:nth-child(4),
-.skills .card:nth-child(4) {
-  transition-delay: 2.4s;
-}
-.history .card:nth-child(5),
-.skills .card:nth-child(5) {
-  transition-delay: 3.1s;
-}
-.history .card:nth-child(6),
-.skills .card:nth-child(6) {
-  transition-delay: 3.8s;
-}
-.history .card:nth-child(7),
-.skills .card:nth-child(7) {
-  transition-delay: 4.5s;
-}
-.history .card:nth-child(8),
+.skills .card:nth-child(7),
 .skills .card:nth-child(8) {
-  transition-delay: 5.2s;
+  transition-delay: 2s;
+}
+.history .card:nth-child(5) {
+  transition-delay: 2.5s;
+}
+.history .card:nth-child(6) {
+  transition-delay: 3s;
+}
+.history .card:nth-child(7) {
+  transition-delay: 3.5s;
+}
+.history .card:nth-child(8) {
+  transition-delay: 4s;
 }
 
 .history .card h2 {
@@ -237,11 +249,13 @@ p.small {
   transition: 1.5s;
   transform: translateY(50px);
 }
+
 .skills .image__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50px;
+  height: auto;
   padding-right: 1.5em;
 }
 .skills img {
@@ -390,13 +404,13 @@ p.small {
 }
 .goal .card:nth-child(1) {
   width: 410px;
-  transition-delay: 1s;
+  transition-delay: 0.7s;
 }
 .goal .card:nth-child(2) {
-  transition-delay: 2s;
+  transition-delay: 1.4s;
 }
 .goal .card:nth-child(3) {
-  transition-delay: 3s;
+  transition-delay: 3.1s;
 }
 .goal .card h2 {
   font-weight: var(--text-bold-weight);
@@ -436,6 +450,7 @@ p.small {
 .values {
   font-size: var(--text-small-size);
 }
+
 .values p {
   color: var(--color-light-gray);
   line-height: var(--text-line-height-mid);
@@ -446,7 +461,9 @@ p.small {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  opacity: 0;
 }
+
 .values__item .stroke {
   width: 100%;
   height: 100px;
