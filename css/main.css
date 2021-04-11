@@ -255,11 +255,12 @@ p.small {
   flex-direction: column;
   align-items: center;
   width: 50px;
-  height: auto;
+
   padding-right: 1.5em;
 }
 .skills img {
   width: 100%;
+  height: auto;
 }
 .skills .card span {
   font-weight: var(--text-mid-weight);
