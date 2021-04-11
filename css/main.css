@@ -259,7 +259,8 @@ p.small {
   padding-right: 1.5em;
 }
 .skills img {
-  width: 100%;
+  width: 50px;
+  height: 50px;
   height: auto;
 }
 .skills .card span {
@@ -313,8 +314,9 @@ p.small {
 .tab__number {
   display: block;
   color: var(--color-light-gray);
-  margin: 2.5em 0;
+  margin: 2em 0;
   cursor: pointer;
+  padding: 3px 0.3em;
 }
 .tab__number.active {
   color: var(--main-black);
@@ -323,7 +325,7 @@ p.small {
 }
 .tab__number.active:after {
   position: absolute;
-  left: 0;
+  left: -1px;
   bottom: -7px;
   content: "";
   width: 110%;
