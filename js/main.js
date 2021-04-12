@@ -84,7 +84,7 @@ const resetSection = () => {
 const moveToSection = (e) => {
   if (e.target.parentNode.nodeName === "LI") {
     currentScene = parseInt(e.target.parentNode.dataset.id); // 이동시 currentScene 업데이트
-    console.log(typeof currentScene);
+
     const willMove = scenes[currentScene - 1].top;
     window.scrollTo(0, willMove);
     body.classList.remove("black");
@@ -119,41 +119,12 @@ const checkScene = () => {
   if (yOffset > projects.top && goal.top > yOffset) currentScene = 4;
   if (yOffset > goal.top && values.top > yOffset) currentScene = 5;
   if (yOffset > values.top) currentScene = 6;
-  //  console.log("C", currentScene);
+
   let scrollRatio = getScrollRatio(currentScene);
   scenes[currentScene - 1].setRatio(scrollRatio); // 씬별로 마지막 스크롤 위치 저장
 
-  //console.log("씬1", scenes[0].currentRatio);
-  // console.log("씬2", scenes[1].currentRatio);
-
-  // if (scenes[0].currentRatio > 0.3) {
-  //   console.log("음", scenes[0].currentRatio - 0.3);
-  //   history.obj["cards"][0].style.opacity = scenes[0].currentRatio - 0.1;
-  // }
-  // if (scenes[0].currentRatio > 0.5) {
-  //   history.obj["cards"][1].style.opacity = scenes[0].currentRatio - 0.2;
-  // }
-  // if (scenes[0].currentRatio > 0.6 || scenes[1].currentRatio > 0.1) {
-  //   history.obj["cards"][2].style.opacity = scenes[1].currentRatio + 0.2;
-  // }
-  // if (scenes[0].currentRatio > 0.7 || scenes[1].currentRatio > 0.2) {
-  //   history.obj["cards"][3].style.opacity = scenes[1].currentRatio + 0.1;
-  // }
-  // if (scenes[1].currentRatio > 0.3) {
-  //   history.obj["cards"][4].style.opacity = scenes[1].currentRatio;
-  // }
-  // if (scenes[1].currentRatio > 0.4) {
-  //   history.obj["cards"][5].style.opacity = scenes[1].currentRatio - 0.1;
-  // }
-  // if (scenes[1].currentRatio > 0.5) {
-  //   history.obj["cards"][6].style.opacity = scenes[1].currentRatio - 0.2;
-  // }
-  // if (scenes[1].currentRatio > 0.6) {
-  //   history.obj["cards"][7].style.opacity = scenes[1].currentRatio - 0.3;
-  // }
-  //console.log(scrollRatio);
   // 씬별로 인터렉티브 효과
-  // scene 1: 색상 변경
+  // scene 1: 글자 투명도 변경
   // scene 2,3,5: 카드 올라오기
   // scene 6: 투명도만 진해지기
   switch (currentScene) {
@@ -209,11 +180,12 @@ const checkScene = () => {
         });
       }
       if (scrollRatio > 0.6) {
+        let delay = 1;
         values.obj["values"].forEach((value) => {
           value.style.opacity = 1;
           value.style.transition = "1s";
+          value.style.transitionDelay = `${delay++}s`;
         });
-        console.log(values.obj["values"]);
       }
 
       break;
