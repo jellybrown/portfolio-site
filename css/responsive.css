@@ -48,7 +48,9 @@
     height: 12px;
   }
   /* projects */
-
+  .projects {
+    min-height: 270vh;
+  }
   .projects__container {
     margin-top: 120px;
     min-width: auto;
@@ -59,12 +61,22 @@
     padding: 1.2em;
     left: 5%;
   }
+  .projects h2 {
+    display: block;
+    margin-bottom: 0.8em;
+  }
   .projects h3 {
     font-size: var(--r-text-large);
   }
   .projects p {
     font-size: var(--r-text-small);
   }
+
+  .projects .date {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
   .article__tab {
     left: 50%;
     transform: translateX(-50%);
@@ -73,6 +85,14 @@
     display: inline-block;
     margin: 0.5em;
   }
+  .article__header .tag__box {
+    padding: 2em 0 0 0;
+  }
+  .article__header .tag {
+    font-size: var(--r-text-small);
+    margin: 5px;
+  }
+
   /* skills */
   .skills .card {
     width: 100%;

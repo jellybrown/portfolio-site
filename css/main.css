@@ -320,15 +320,19 @@ p.small {
   color: var(--main-black);
   font-weight: var(--text-mid-weight);
   position: relative;
+  transition: 0.5s;
 }
 .tab__number.active:after {
   position: absolute;
-  left: -1px;
-  bottom: -7px;
+  left: 1px;
+  bottom: -5px;
   content: "";
-  width: 110%;
+  width: 84%;
   height: 1px;
   background-color: var(--main-black);
+}
+.projects {
+  min-height: 200vh;
 }
 .projects__item {
   position: absolute;
@@ -341,16 +345,36 @@ p.small {
   padding: 2em;
   opacity: 0;
   transition: 0.5s;
+  visibility: hidden;
 }
 .projects__item.active {
   opacity: 1;
   transition: 0.5s;
+  visibility: visible;
 }
 
 .article__header {
 }
+
+.article__header .tag__box {
+  padding: 2em 0;
+}
+.article__header .tag {
+  padding: 0.7em 1.4em;
+  margin: 3px 5px;
+  display: inline-block;
+
+  color: var(--main-black);
+  font-size: var(--text-small-size);
+  line-height: var(--text-small-size);
+  border: 1px solid var(--color-basic-gray);
+  border-radius: 20px;
+}
 .article__description {
   margin: 2.5em 0;
+}
+.article__description p {
+  line-height: var(--text-large-size);
 }
 .projects .button__wrapper {
   text-align: center;
