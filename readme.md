@@ -1,4 +1,4 @@
-# Purples (진행중인 프로젝트)
+# 포트폴리오 사이트
 
 <br>
 
@@ -189,3 +189,40 @@ window.addEventListener("scroll", throttle(checkScene, 100));
 <img src="/pp-site-figma.png" width="500">
 
 <br>
+
+---
+
+## ❗️ 링크
+
+<br>
+
+<a href="https://jellybrown.github.io/portfolio-site/" target="_blank">구경하러가기</a>
+
+<br>
+
+---
+
+<br>
+
+## ❗️ 프로젝트 결과화면
+
+<br>
+
+<img src="https://github.com/jellybrown/portfolio-site/blob/master/port.gif" width="700">
+
+<br>
+
+---
+
+<br>
+
+## ❗️ 만들면서 힘들었던 점
+
+<br>
+
+### 스크롤 구현
+
+사실 스크롤 %에 따라 opacity를 조절하여 부드럽게 변경하고 싶었는데, <br>
+구현은 성공했지만 영역을 빠르게 지나치면 이벤트가 부자연스러운 것을 발견했습니다.<br>
+지금으로서는 빠른 시일내에 완성이 목적이였기 때문에 애니메이션처럼 보이는 효과로 변경했습니다.<br>
+이 부분은 스크롤 이벤트 구현에 대해 더 공부해야 할 것 같습니다.
