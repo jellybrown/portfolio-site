@@ -57,9 +57,9 @@
     width: 100%;
   }
   .projects__item {
-    width: 77%;
+    width: 82%;
     padding: 1.2em;
-    left: 5%;
+    left: 3%;
   }
   .projects h2 {
     display: block;
@@ -80,6 +80,8 @@
   .article__tab {
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
   }
   .tab__number {
     display: inline-block;
@@ -90,7 +92,7 @@
   }
   .article__header .tag {
     font-size: var(--r-text-small);
-    margin: 5px;
+    margin: 4px 2px;
   }
 
   /* skills */

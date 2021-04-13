@@ -180,22 +180,22 @@ const checkScene = () => {
         });
       }
       if (scrollRatio > 0.6) {
-        let delay = 1;
+        let delay = 0.6;
         values.obj["values"].forEach((value) => {
           value.style.opacity = 1;
           value.style.transition = "1s";
-          value.style.transitionDelay = `${delay++}s`;
+          value.style.transitionDelay = `${(delay += 0.6)}s`;
         });
       }
 
       break;
     case 6: // values
       if (scrollRatio > 0.1) {
-        let delay = 1;
+        let delay = 0.6;
         values.obj["values"].forEach((value) => {
           value.style.opacity = 1;
           value.style.transition = "1s";
-          value.style.transitionDelay = `${delay++}s`;
+          value.style.transitionDelay = `${(delay += 0.6)}s`;
         });
       }
     default:

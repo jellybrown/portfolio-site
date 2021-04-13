@@ -429,13 +429,13 @@ p.small {
 }
 .goal .card:nth-child(1) {
   width: 410px;
-  transition-delay: 0.7s;
+  transition-delay: 0.5s;
 }
 .goal .card:nth-child(2) {
-  transition-delay: 1.4s;
+  transition-delay: 1s;
 }
 .goal .card:nth-child(3) {
-  transition-delay: 3.1s;
+  transition-delay: 1.5s;
 }
 .goal .card h2 {
   font-weight: var(--text-bold-weight);
