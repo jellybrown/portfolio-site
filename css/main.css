@@ -23,7 +23,9 @@
   --shadow-style-card-1: 0px 16px 15px -10px rgba(105, 96, 215, 0.0944602);
   --shadow-style-card-2: 0px 6px 10px rgba(115, 120, 225, 0.05);
 }
-
+* {
+  -webkit-overflow-scrolling: touch;
+}
 /* layout */
 
 html,
